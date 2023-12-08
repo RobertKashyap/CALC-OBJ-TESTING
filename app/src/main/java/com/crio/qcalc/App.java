@@ -18,15 +18,26 @@ public class App {
 
         // StandardCalculator calc = new StandardCalculator();
 
-        calc.add(Double.MAX_VALUE, 1.0);
+        // calc.add(Double.MAX_VALUE, 1.0);
 
-        calc.printResult();
+        // calc.printResult();
 
-        // StandardCalculator calc = new StandardCalculator();
+        // // StandardCalculator calc = new StandardCalculator();
 
-        calc.add(Double.MAX_VALUE, Double.MAX_VALUE);
+        // calc.add(Double.MAX_VALUE, Double.MAX_VALUE);
 
-        calc.printResult();
+        // calc.printResult();
+
+
+        LogicCalculator calc_l = new LogicCalculator();
+
+        calc_l.OR(8, 6);
+
+        calc_l.printResult();
+        calc_l.AND(8, 6);
+
+        calc_l.printResult();
+
 
 
     }

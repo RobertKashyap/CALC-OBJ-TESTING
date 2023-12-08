@@ -14,32 +14,36 @@ public class StandardCalculatorTest {
         standardCalculator = new StandardCalculator();
     }
 
-
     @Test
-    @DisplayName("Test Division of Two Integers")
-    void testDivisionOperation() {
-        standardCalculator.divide(4, 2);
-        double actualResult = standardCalculator.getResult();
-        Assertions.assertEquals(2, (int) actualResult);
-    }
-
-
-    @Test
-    @DisplayName("Test Multiplication of Two Integers")
-    void testMultiplicationOperation() {
-        standardCalculator.multiply(4, 2);
-        double actualResult = standardCalculator.getResult();
-        Assertions.assertEquals(8, actualResult);
-    }
-
-
-
-    @DisplayName("Test Addition Overflow of Two Doubles")
-    void testAdditionOverflowForDoubles() {
-        // Assert
-        Assertions.assertThrows(ArithmeticException.class, new Executable() {
+    @DisplayName("Test Multiplication Overflow of Two Doubles")
+    void testMultiplicationOverflowForDoubles(){
+        //Assert
+        Assertions.assertThrows(ArithmeticException.class,new Executable(){
             @Override
-            public void execute() throws Throwable {
+            public void execute() throws Throwable{
+                standardCalculator.multiply(Double.MAX_VALUE,Double.MAX_VALUE);
+            }
+        });
+    }
+    @Test
+    @DisplayName("Test Multiplication Overflow of Two Doubles in which One is Positive and Other is Negative")
+    void testMultiplicationOverflowForDoublesOnePosOtherNeg(){
+        //Assert
+        Assertions.assertThrows(ArithmeticException.class,new Executable(){
+            @Override
+            public void execute() throws Throwable{
+                standardCalculator.multiply(-Double.MAX_VALUE,Double.MAX_VALUE);
+            }
+        });
+    }
+
+    @Test
+    @DisplayName("Test Addition Overflow of Two Doubles")
+    void testAdditionOverflowForDoubles(){
+        //Assert
+        Assertions.assertThrows(ArithmeticException.class,new Executable(){
+            @Override
+            public void execute() throws Throwable{
                 standardCalculator.add(Double.MAX_VALUE, Double.MAX_VALUE);
             }
         });
@@ -88,6 +92,31 @@ public class StandardCalculatorTest {
         double actualResult = standardCalculator.getResult();
         Assertions.assertEquals(0, actualResult);
     }
+
+
+   @Test
+
+   @DisplayName("Test Division Divide By Zero Scenario")
+
+   void testDivisionDivideByZero(){
+
+       //Assert
+
+       Assertions.assertThrows(ArithmeticException.class,new Executable(){
+
+           @Override
+
+           public void execute() throws Throwable{
+
+               standardCalculator.divide(10,0);
+
+           }
+
+       });
+
+   }
+
+
 
 
 }
