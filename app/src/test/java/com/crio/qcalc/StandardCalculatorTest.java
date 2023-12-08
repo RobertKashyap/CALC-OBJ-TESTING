@@ -9,17 +9,16 @@ public class StandardCalculatorTest {
     private StandardCalculator standardCalculator;
 
     @BeforeEach
-    void setup(){
+    void setup() {
         standardCalculator = new StandardCalculator();
     }
 
 
 
-
     @Test
     @DisplayName("Test Addition of Two Integers")
-    void testAdditionOperation(){
-        standardCalculator.add(1,1);
+    void testAdditionOperation() {
+        standardCalculator.add(1, 1);
         int actualResult = standardCalculator.getResult();
         Assertions.assertEquals(2, actualResult);
     }
@@ -32,5 +31,23 @@ public class StandardCalculatorTest {
         Assertions.assertEquals(0, actualResult);
     }
 
+    @Test
+    @DisplayName("Test Division of Two Integers")
+    void testDivisionOperation(){
+        standardCalculator.divide(4, 2);
+        int actualResult=standardCalculator.getResult();
+        Assertions.assertEquals(2, actualResult);
+    }
+
+
+    @Test    
+    @DisplayName("Test Multiplication of Two Integers")
+    void testMultiplicationOperation(){
+        standardCalculator.multiply(4, 2);
+        int actualResult=standardCalculator.getResult();
+        Assertions.assertEquals(8, actualResult);
+    }
+    
+    
 
 }
