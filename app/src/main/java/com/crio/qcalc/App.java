@@ -5,21 +5,35 @@ package com.crio.qcalc;
 public class App {
 
 
-   public static void main(String[] args) {
+    public static void main(String[] args) {
 
-       System.out.println("Starting QCalc..");
+        System.out.println("Starting QCalc..");
 
-       StandardCalculator calc = new StandardCalculator();
+        StandardCalculator calc = new StandardCalculator();
 
-       calc.add(1, 2);
+        calc.add(1, 2);
 
-       System.out.println(calc.getResult());
+        System.out.println(calc.getResult());
 
-   }
 
-public String getGreeting() {
-    return "Welcome to Calculator QCalc";
-}
+        // StandardCalculator calc = new StandardCalculator();
+
+        calc.add(Double.MAX_VALUE, 1.0);
+
+        calc.printResult();
+
+        // StandardCalculator calc = new StandardCalculator();
+
+        calc.add(Double.MAX_VALUE, Double.MAX_VALUE);
+
+        calc.printResult();
+
+
+    }
+
+    public String getGreeting() {
+        return "Welcome to Calculator QCalc";
+    }
 
 
 }
